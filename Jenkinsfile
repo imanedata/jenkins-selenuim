@@ -4,10 +4,11 @@ pipeline {
         stage('Build selenium-nodejs Image') {
             steps {
                 script {
-                    // Construire l'image selenium-nodejs si elle n'existe pas
+                    // Vérifier si l'image selenium-nodejs existe déjà
                     def imageExists = sh(script: "docker images -q selenium-nodejs", returnStdout: true).trim()
                     if (imageExists == "") {
                         echo 'Image selenium-nodejs non trouvée, construction en cours...'
+                        // Construire l'image selenium-nodejs
                         sh "docker build -t selenium-nodejs ."
                     } else {
                         echo 'Image selenium-nodejs trouvée.'
@@ -17,10 +18,12 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                // Utilise l'image locale selenium-nodejs
-                docker.image('selenium-nodejs').inside {
-                    sh 'npm ci'
-                    sh 'npx cypress run'
+                script {
+                    // Exécuter les tests dans le conteneur Docker selenium-nodejs
+                    docker.image('selenium-nodejs').inside {
+                        sh 'npm ci'       // Installer les dépendances Node.js
+                        sh 'npx cypress run'  // Lancer les tests Cypress
+                    }
                 }
             }
         }
