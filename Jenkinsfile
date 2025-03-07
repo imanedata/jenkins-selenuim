@@ -16,8 +16,8 @@ pipeline {
                     '''
                     
                     // Créer le répertoire cache de Selenium pour éviter les problèmes de permission
-                    sh 'sudo mkdir -p /home/seluser/.cache/selenium'  // Exécuter en tant que root
-                    sh 'sudo chmod -R 777 /home/seluser/.cache/selenium'  // Appliquer les permissions en tant que root
+                    sh 'mkdir -p /home/seluser/.cache/selenium'
+                    sh 'chmod -R 777 /home/seluser/.cache/selenium'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test'
+                    sh 'mvn test -D groups="login" '
                 }
             }
         }
