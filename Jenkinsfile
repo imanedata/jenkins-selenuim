@@ -19,8 +19,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Exécuter les tests dans l'image Selenium
-                    docker.image('selenium-nodejs').inside {
+                    // Exécuter les tests dans l'image Selenium avec l'option --ulimit
+                    docker.image('selenium-nodejs').inside('--ulimit nofile=32768') {
                         // Exécuter les tests Maven dans le conteneur
                         sh 'mvn test'  
                     }
