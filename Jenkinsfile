@@ -1,22 +1,27 @@
 pipeline {
-    agent { docker { image 'selenium/standalone-chrome' } }
+    agent {
+        docker {
+            image 'selenium/standalone-chrome'
+            args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'  // Permet à Docker d'utiliser le socket de l'hôte
+        }
+    }
     stages {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Utiliser 'root' pour installer Maven et Java dans le conteneur
-                    sh 'sudo apt-get update && sudo apt-get install -y maven openjdk-21-jdk'
+                    // Installer Maven et Java dans le conteneur
+                    sh '''
+                    sudo apt-get update && \
+                    sudo apt-get install -y maven openjdk-21-jdk
+                    '''
                 }
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    // Exécuter les tests dans le conteneur Docker selenium/standalone-chrome
-                    docker.image('selenium/standalone-chrome').inside('--ulimit nofile=32768') {
-                        // Exécuter les tests Maven dans le conteneur
-                        sh 'mvn test'
-                    }
+                    // Exécuter les tests Maven dans le conteneur
+                    sh 'mvn test'
                 }
             }
         }
