@@ -21,7 +21,7 @@ import com.logwire.pages.CheckoutPage;
 import com.logwire.pages.InventoryPage;
 import com.logwire.pages.LoginPage;
 
-@Tag("checkout")
+@Tag("chekoutPageTest")
 public class ChekoutPageTest {
     WebDriver driver;
     LoginPage loginPage;

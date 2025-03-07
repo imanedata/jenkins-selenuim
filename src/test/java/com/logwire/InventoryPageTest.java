@@ -22,7 +22,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import com.logwire.pages.InventoryPage;
 import com.logwire.pages.LoginPage;
 
-@Tag("produits")
+@Tag("inventoryPageTest")
 public class InventoryPageTest {
     WebDriver driver;
     LoginPage loginPage;

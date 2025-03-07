@@ -22,7 +22,7 @@ import com.logwire.pages.CheckoutPage;
 import com.logwire.pages.InventoryPage;
 import com.logwire.pages.LoginPage;
 
-@Tag("checkoutoverview")
+@Tag("checkoutOverviewTest")
 public class CheckoutOverviewTest {
     WebDriver driver;
     LoginPage loginPage;

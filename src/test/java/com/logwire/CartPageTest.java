@@ -21,7 +21,7 @@ import com.logwire.pages.CheckoutPage;
 import com.logwire.pages.InventoryPage;
 import com.logwire.pages.LoginPage;
 
-@Tag("panier")
+@Tag("cartPageTest")
 public class CartPageTest {
     WebDriver driver;
     LoginPage loginPage;

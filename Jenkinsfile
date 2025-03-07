@@ -25,7 +25,11 @@ pipeline {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test'
+                    sh 'mvn test -D groups="login" '
+                    sh 'mvn test -D groups="cartPageTest" '
+                    sh 'mvn test -D groups="checkoutOverviewTest" '
+                    sh 'mvn test -D groups="inventoryPageTest" '
+                    sh 'mvn test -D groups="chekoutPageTest" '
                 }
             }
         }
