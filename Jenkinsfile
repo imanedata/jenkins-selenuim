@@ -26,10 +26,8 @@ pipeline {
     post {
         always {
             script {
-                echo "Tests finished. Collecting results..."
+                echo "Tests finished. Check the console output for details!"
             }
-            archiveArtifacts artifacts: '**/test-results/*.xml', allowEmptyArchive: true
-            junit '**/test-results/*.xml'
         }
     }
 }
