@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.logwire.pages.CartPage;
@@ -30,22 +31,25 @@ public class CartPageTest {
 
     @BeforeEach
     public void setUp(){
-        String browser = System.getProperty("browser","chrome");
+        String browser = System.getProperty("browser", "chrome");
+
+        // Options de Chrome sans le user-data-dir
+        ChromeOptions options = new ChromeOptions();
+        // Pas de --user-data-dir ici
+        options.addArguments("--headless");  // Facultatif : pour exécuter Chrome sans UI
+        options.addArguments("--disable-gpu"); // Facultatif : pour les environnements sans GPU
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                driver = new ChromeDriver();
-                //ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--headless=new");
+                driver = new ChromeDriver(options); // Utilisation des options pour Chrome
                 break;
             
             case "firefox":
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(); // Utilisation de Firefox sans options
                 break;
+            
             default:
-                driver = new ChromeDriver(); 
-                //ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--headless=new");
+                driver = new ChromeDriver(options); // Utilisation par défaut de Chrome sans options
                 break;
         }
         loginPage = new LoginPage(driver);
