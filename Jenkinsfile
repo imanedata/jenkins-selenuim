@@ -1,33 +1,25 @@
 pipeline {
     agent {
         docker {
-            image "selenium-nodejs"
-            args "--network host"
+            image 'selenium-nodejs'  // Utilise l'image construite localement
+            args '--network host'
         }
-    }
-    environment {
-        SELENIUM_URL = "http://localhost:4444/wd/hub"
     }
     stages {
-        stage("Install dependencies") {
+        stage('Install dependencies') {
             steps {
-                sh "npm ci"
+                sh 'npm ci'
             }
         }
-        stage("Run Selenium tests") {
+        stage('Run Selenium tests') {
             steps {
-                sh """
-                echo "Running Selenium tests..."
-                npx mocha --timeout 30000 test/specs/*.js
-                """
+                sh 'npx cypress run'
             }
         }
     }
     post {
         always {
-            script {
-                echo "Tests finished. Check the console output for details!"
-            }
+            echo 'Tests finished. Check the console output for details!'
         }
     }
 }
