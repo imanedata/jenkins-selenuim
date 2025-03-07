@@ -2,8 +2,9 @@ package com.logwire;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.time.Duration;
-import java.nio.file.Paths;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,28 +26,30 @@ public class LoginTest {
     LoginPage loginPage;
     InventoryPage inventoryPage;
 
+    private String userDataDir;
+
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
         String browser = System.getProperty("browser", "chrome");
 
-        // Génération d'un répertoire utilisateur unique pour chaque session
-        String userDataDir = "/tmp/chrome_user_data_" + System.nanoTime();
+        // Création d'un répertoire temporaire unique pour chaque test
+        userDataDir = "/tmp/chrome_user_data_" + System.nanoTime();
+        Files.createDirectories(new File(userDataDir).toPath());
 
-        // Création de ChromeOptions pour définir un répertoire utilisateur unique
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=" + userDataDir); // Chemin temporaire unique
+        options.addArguments("--user-data-dir=" + userDataDir);  // Répertoire unique
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                driver = new ChromeDriver(options); // Utilisation des options pour Chrome
+                driver = new ChromeDriver(options);  // Chrome avec options
                 break;
             
             case "firefox":
-                driver = new FirefoxDriver(); // Utilisation de Firefox sans options
+                driver = new FirefoxDriver();  // Firefox sans options
                 break;
             
             default:
-                driver = new ChromeDriver(options); // Utilisation par défaut de Chrome avec options
+                driver = new ChromeDriver(options);  // Chrome par défaut avec options
                 break;
         }
 
@@ -57,12 +60,28 @@ public class LoginTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void tearDown() throws Exception {
         if (driver != null) {
             driver.close();
             driver.quit();
             driver = null;
         }
+
+        // Suppression du répertoire des données utilisateur après chaque test
+        File userData = new File(userDataDir);
+        if (userData.exists()) {
+            deleteDirectory(userData);
+        }
+    }
+
+    // Méthode pour supprimer un répertoire et son contenu
+    private void deleteDirectory(File directory) {
+        if (directory.isDirectory()) {
+            for (File file : directory.listFiles()) {
+                deleteDirectory(file);
+            }
+        }
+        directory.delete();
     }
 
     @Tag("positifLogin")
@@ -72,7 +91,6 @@ public class LoginTest {
         loginPage.saisirUsername(username);
         loginPage.saisirPassword(password);
         loginPage.clickLogin();
-        // Vérifie que l'utilisateur a été redirigé vers la page d'inventaire
         assertTrue((inventoryPage.getNbrProduits() > 0) && driver.getCurrentUrl().contains("/inventory"));
     }
 
@@ -82,7 +100,6 @@ public class LoginTest {
         loginPage.saisirUsername("user");
         loginPage.saisirPassword("secret_sauce");
         loginPage.clickLogin();
-        // Vérifie que l'erreur de connexion est affichée
         assertTrue(loginPage.getError());
     }
 
@@ -92,7 +109,6 @@ public class LoginTest {
         loginPage.saisirUsername("standard_user");
         loginPage.saisirPassword("secret");
         loginPage.clickLogin();
-        // Vérifie que l'erreur de connexion est affichée
         assertTrue(loginPage.getError());
     }
 }
