@@ -3,6 +3,7 @@ package com.logwire;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
+import java.nio.file.Paths;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,9 +29,12 @@ public class LoginTest {
     public void setUp() {
         String browser = System.getProperty("browser", "chrome");
 
+        // Génération d'un répertoire utilisateur unique pour chaque session
+        String userDataDir = "/tmp/chrome_user_data_" + System.nanoTime();
+
         // Création de ChromeOptions pour définir un répertoire utilisateur unique
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=/tmp/chrome_user_data_" + System.nanoTime()); // Chemin temporaire unique
+        options.addArguments("--user-data-dir=" + userDataDir); // Chemin temporaire unique
 
         switch (browser.toLowerCase()) {
             case "chrome":
