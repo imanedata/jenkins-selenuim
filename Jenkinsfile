@@ -20,8 +20,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test'
+                    // Passer des options personnalisées à Chrome (spécifier un répertoire de données utilisateur unique)
+                    sh 'mvn test -Dchrome.options.args="--user-data-dir=/tmp/chrome-user-data"'
                 }
             }
         }
