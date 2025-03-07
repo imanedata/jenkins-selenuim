@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.logwire.pages.CartPage;
@@ -34,20 +35,23 @@ public class CartPageTest {
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                driver = new ChromeDriver();
-                //ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--headless=new");
+                // Spécification du répertoire de données utilisateur unique pour éviter le conflit
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--user-data-dir=/tmp/chrome-user-data");  // Spécifier un répertoire unique
+                driver = new ChromeDriver(options);
                 break;
             
             case "firefox":
                 driver = new FirefoxDriver();
                 break;
             default:
-                driver = new ChromeDriver(); 
-                //ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--headless=new");
+                // Option par défaut : utiliser Chrome avec un répertoire de données utilisateur unique
+                options = new ChromeOptions();
+                options.addArguments("--user-data-dir=/tmp/chrome-user-data");  // Spécifier un répertoire unique
+                driver = new ChromeDriver(options); 
                 break;
         }
+
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
@@ -92,7 +96,6 @@ public class CartPageTest {
         inventoryPage.clickPanier();
         cartPage.checkout();
         assertTrue(checkoutPage.getChekoutInfo().isDisplayed());
-
     }
 
     @Tag("invalideCheckoutTest")
@@ -102,5 +105,4 @@ public class CartPageTest {
         cartPage.checkout();
         assertFalse(checkoutPage.getChekoutInfo().isDisplayed());
     }
-    
 }
