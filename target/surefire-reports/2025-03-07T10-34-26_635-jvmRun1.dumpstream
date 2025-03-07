@@ -190,3 +190,55 @@ Unexpected IOException: 6,1,com.logwire.LoginTest,logincorrect{String\002C Strin
 Unexpected IOException: 5,1,com.logwire.LoginTest,logincorrect{String\002C String}[3],null,null,null
 
 
+# Created at 2025-03-07T10:35:26.563
+Unexpected IOException with stream: mars 07, 2025 10:35:26 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 133, returning the closest version; found: 132; Please update to a Selenium version that supports CDP version 133
+
+
+# Created at 2025-03-07T10:35:32.241
+Unexpected IOException: 6,1,com.logwire.LoginTest,logincorrect{String\002C String}[3],null,null,null
+
+
+# Created at 2025-03-07T10:35:32.243
+Unexpected IOException: 5,1,com.logwire.LoginTest,logincorrect{String\002C String}[4],null,null,null
+
+
+# Created at 2025-03-07T10:35:33.139
+Unexpected IOException with stream: mars 07, 2025 10:35:33 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 133, returning the closest version; found: 132; Please update to a Selenium version that supports CDP version 133
+
+
+# Created at 2025-03-07T10:35:33.920
+Unexpected IOException: 6,1,com.logwire.LoginTest,logincorrect{String\002C String}[4],null,null,null
+
+
+# Created at 2025-03-07T10:35:33.920
+Unexpected IOException: 5,1,com.logwire.LoginTest,logincorrect{String\002C String}[5],null,null,null
+
+
+# Created at 2025-03-07T10:35:34.793
+Unexpected IOException with stream: mars 07, 2025 10:35:34 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 133, returning the closest version; found: 132; Please update to a Selenium version that supports CDP version 133
+
+
+# Created at 2025-03-07T10:35:35.639
+Unexpected IOException: 6,1,com.logwire.LoginTest,logincorrect{String\002C String}[5],null,null,null
+
+
+# Created at 2025-03-07T10:35:35.644
+Unexpected IOException: 5,1,com.logwire.LoginTest,usernameIncorrectPasswordCorrect,null,null,null
+
+
+# Created at 2025-03-07T10:35:36.555
+Unexpected IOException with stream: mars 07, 2025 10:35:36 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 133, returning the closest version; found: 132; Please update to a Selenium version that supports CDP version 133
+
+
+# Created at 2025-03-07T10:35:37.220
+Unexpected IOException: 6,1,com.logwire.LoginTest,usernameIncorrectPasswordCorrect,null,null,null
+
+
+# Created at 2025-03-07T10:35:37.223
+Unexpected IOException: 2,1,org.apache.maven.surefire.junitplatform.JUnitPlatformProvider,com.logwire.LoginTest,null,null,null
+
+
