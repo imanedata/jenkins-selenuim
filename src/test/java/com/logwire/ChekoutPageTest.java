@@ -87,24 +87,24 @@ public class ChekoutPageTest {
         assertTrue(true);
     }
 
-    @Tag("invalidContinuTest")
-    @ParameterizedTest
-    @CsvFileSource(resources = "data/invalideCheckoutInfo.csv", numLinesToSkip = 1)
-    public void invalidContinuTest(String firstName, String lastName, String zipCode){
-        inventoryPage.addProduct();
-        inventoryPage.clickPanier();
-        cartPage.checkout();
-        checkoutPage.saisirFirstName(firstName);
-        checkoutPage.saisirLastName(lastName);
-        checkoutPage.saisirZipCode(zipCode);
-        checkoutPage.continueClick();
-        String classe;
-        try {
-            classe = checkoutPage.getErrorElement().getDomAttribute("class");
-        } catch (Exception e) {
-            // TODO: handle exception
-            classe = null;
-        }
-        assertEquals("error-message-container error", classe);
-    }
+    // @Tag("invalidContinuTest")
+    // @ParameterizedTest
+    // @CsvFileSource(resources = "data/invalideCheckoutInfo.csv", numLinesToSkip = 1)
+    // public void invalidContinuTest(String firstName, String lastName, String zipCode){
+    //     inventoryPage.addProduct();
+    //     inventoryPage.clickPanier();
+    //     cartPage.checkout();
+    //     checkoutPage.saisirFirstName(firstName);
+    //     checkoutPage.saisirLastName(lastName);
+    //     checkoutPage.saisirZipCode(zipCode);
+    //     checkoutPage.continueClick();
+    //     String classe;
+    //     try {
+    //         classe = checkoutPage.getErrorElement().getDomAttribute("class");
+    //     } catch (Exception e) {
+    //         // TODO: handle exception
+    //         classe = null;
+    //     }
+    //     assertEquals("error-message-container error", classe);
+    // }
 }

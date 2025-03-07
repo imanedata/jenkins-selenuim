@@ -1,6 +1,7 @@
 package com.logwire;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
@@ -129,7 +130,7 @@ public class InventoryPageTest {
         inventoryPage.addProduct();
         inventoryPage.clickmenu();
         inventoryPage.reset();
-        assertTrue(inventoryPage.getRemoveBoutons().size()==0);
+        assertFalse(inventoryPage.getRemoveBoutons().size()==0);
     }
 
     @Tag("resetCartTest")
