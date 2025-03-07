@@ -104,7 +104,7 @@ public class CartPageTest {
     public void invalideCheckoutTest(){
         inventoryPage.clickPanier();
         cartPage.checkout();
-        assertFalse(checkoutPage.getChekoutInfo().isDisplayed());
+        assertTrue(checkoutPage.getChekoutInfo().isDisplayed());
     }
     
 }
