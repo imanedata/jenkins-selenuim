@@ -16,8 +16,8 @@ pipeline {
                     '''
                     
                     // Créer le répertoire cache de Selenium pour éviter les problèmes de permission
-                    sh 'mkdir -p /home/seluser/.cache/selenium'
-                    sh 'chmod -R 777 /home/seluser/.cache/selenium'
+                    sh 'sudo mkdir -p /home/seluser/.cache/selenium'  // Exécuter en tant que root
+                    sh 'sudo chmod -R 777 /home/seluser/.cache/selenium'  // Appliquer les permissions en tant que root
                 }
             }
         }
