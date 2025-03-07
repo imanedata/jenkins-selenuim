@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.logwire.ChekoutPageTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 175.17 s <<< FAILURE! - in com.logwire.ChekoutPageTest
+invalidContinuTest{String, String, String}[3]  Time elapsed: 42.692 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <error-message-container error> but was: <null>
+	at com.logwire.ChekoutPageTest.invalidContinuTest(ChekoutPageTest.java:104)
+

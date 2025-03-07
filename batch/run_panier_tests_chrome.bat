@@ -1,0 +1,1 @@
+mvn test -D groups="panier" -D browser="chrome"

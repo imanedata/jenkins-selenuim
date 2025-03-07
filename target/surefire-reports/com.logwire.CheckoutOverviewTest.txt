@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.logwire.CheckoutOverviewTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 97.148 s - in com.logwire.CheckoutOverviewTest

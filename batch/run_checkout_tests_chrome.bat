@@ -1,0 +1,1 @@
+mvn test -D groups="checkout" -D browser="chrome"

@@ -1,0 +1,1 @@
+mvn test -D groups="login" -D browser="firefox"
