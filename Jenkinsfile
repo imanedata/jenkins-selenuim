@@ -21,8 +21,7 @@ pipeline {
                 script {
                     // Exécuter les tests dans le conteneur Docker selenium-nodejs
                     docker.image('selenium-nodejs').inside {
-                        sh 'npm ci'       // Installer les dépendances Node.js
-                        sh 'npx cypress run'  // Lancer les tests Cypress
+                        sh 'mvn test '  // Lancer les tests Cypress
                     }
                 }
             }

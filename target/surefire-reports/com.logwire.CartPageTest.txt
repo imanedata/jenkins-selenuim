@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.logwire.CartPageTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 107.91 s <<< FAILURE! - in com.logwire.CartPageTest
-invalideCheckoutTest  Time elapsed: 26.801 s  <<< FAILURE!
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.668 s <<< FAILURE! - in com.logwire.CartPageTest
+invalideCheckoutTest  Time elapsed: 1.815 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at com.logwire.CartPageTest.invalideCheckoutTest(CartPageTest.java:103)
 

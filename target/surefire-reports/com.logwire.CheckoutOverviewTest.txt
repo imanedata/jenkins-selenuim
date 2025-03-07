@@ -1,4 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: com.logwire.CheckoutOverviewTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 97.148 s - in com.logwire.CheckoutOverviewTest
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 7.247 s <<< FAILURE! - in com.logwire.CheckoutOverviewTest
+sommeHorsTaxeTest  Time elapsed: 2.209 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.replaceAll(String, String)" because the return value of "org.openqa.selenium.WebElement.getText()" is null
+	at com.logwire.CheckoutOverviewTest.sommeHorsTaxeTest(CheckoutOverviewTest.java:90)
+
+sommeTTCTest  Time elapsed: 2.723 s  <<< ERROR!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Error communicating with the remote browser. It may have died.
+Build info: version: '4.28.1', revision: '73f5ad48a2'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [40373aabc5b132fba955307034b4e2b9, clickElement [id]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59364}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59364/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (40373aabc5b132fba955307034b4e2b9)] -> class name: btn_inventory]
+Session ID: 40373aabc5b132fba955307034b4e2b9
+	at com.logwire.CheckoutOverviewTest.sommeTTCTest(CheckoutOverviewTest.java:100)
+Caused by: java.io.UncheckedIOException: java.io.IOException: HTTP/1.1 header parser received no bytes
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
+Caused by: java.net.SocketException: Connection reset
+
