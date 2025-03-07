@@ -1,19 +1,27 @@
 pipeline {
-    agent {
-        docker {
-            image 'selenium-nodejs'
-            args '--privileged --network host'
-        }
-    }
+    agent any
     stages {
-        stage('Install dependencies') {
+        stage('Build selenium-nodejs Image') {
             steps {
-                sh 'npm ci'
+                script {
+                    // Construire l'image selenium-nodejs si elle n'existe pas
+                    def imageExists = sh(script: "docker images -q selenium-nodejs", returnStdout: true).trim()
+                    if (imageExists == "") {
+                        echo 'Image selenium-nodejs non trouvée, construction en cours...'
+                        sh "docker build -t selenium-nodejs ."
+                    } else {
+                        echo 'Image selenium-nodejs trouvée.'
+                    }
+                }
             }
         }
-        stage('Run Selenium tests') {
+        stage('Run Tests') {
             steps {
-                sh 'npx cypress run'
+                // Utilise l'image locale selenium-nodejs
+                docker.image('selenium-nodejs').inside {
+                    sh 'npm ci'
+                    sh 'npx cypress run'
+                }
             }
         }
     }
