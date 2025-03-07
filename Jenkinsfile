@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Exécuter les tests Maven dans le conteneur
-                    sh 'mvn test '
+                    sh 'mvn test'
                 }
             }
         }
