@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image "cypress/browsers:node20.8.0-chrome118-ff118"
-            args "--network host""
+            args "--network host"
         }
     }
     environment {
