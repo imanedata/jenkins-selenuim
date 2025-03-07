@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.logwire.InventoryPageTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 204.49 s <<< FAILURE! - in com.logwire.InventoryPageTest
-resetBoutonTest  Time elapsed: 23.403 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at com.logwire.InventoryPageTest.resetBoutonTest(InventoryPageTest.java:128)
-
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.75 s - in com.logwire.InventoryPageTest

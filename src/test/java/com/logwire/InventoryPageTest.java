@@ -16,7 +16,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.logwire.pages.InventoryPage;
@@ -34,20 +33,18 @@ public class InventoryPageTest {
 
         switch (browser.toLowerCase()) {
             case "chrome":
-                // Spécification du répertoire de données utilisateur unique pour éviter le conflit
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");  // Spécifier un répertoire unique
-                driver = new ChromeDriver(options);
+                driver = new ChromeDriver();
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--headless=new");
                 break;
             
             case "firefox":
                 driver = new FirefoxDriver();
                 break;
             default:
-                // Option par défaut : utiliser Chrome avec un répertoire de données utilisateur unique
-                options = new ChromeOptions();
-                options.addArguments("--user-data-dir=/tmp/chrome-user-data");  // Spécifier un répertoire unique
-                driver = new ChromeDriver(options); 
+                driver = new ChromeDriver(); 
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--headless=new");
                 break;
         }
  

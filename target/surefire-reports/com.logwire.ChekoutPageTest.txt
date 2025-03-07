@@ -1,24 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.logwire.ChekoutPageTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 15.214 s <<< FAILURE! - in com.logwire.ChekoutPageTest
-invalidContinuTest{String, String, String}[1]  Time elapsed: 2.733 s  <<< ERROR!
-org.openqa.selenium.remote.UnreachableBrowserException: 
-Error communicating with the remote browser. It may have died.
-Build info: version: '4.28.1', revision: '73f5ad48a2'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1d99ebd041b739df5471cd14bcc1a47e, sendKeysToElement [id, value]]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.142, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59416}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59416/devtoo..., se:cdpVersion: 133.0.6943.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (1d99ebd041b739df5471cd14bcc1a47e)] -> id: first-name]
-Session ID: 1d99ebd041b739df5471cd14bcc1a47e
-	at com.logwire.ChekoutPageTest.invalidContinuTest(ChekoutPageTest.java:93)
-Caused by: java.io.UncheckedIOException: java.io.IOException: HTTP/1.1 header parser received no bytes
-Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
-Caused by: java.io.IOException: HTTP/1.1 header parser received no bytes
-Caused by: java.net.SocketException: Connection reset
-
-invalidContinuTest{String, String, String}[3]  Time elapsed: 5.404 s  <<< FAILURE!
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 13.213 s <<< FAILURE! - in com.logwire.ChekoutPageTest
+invalidContinuTest{String, String, String}[3]  Time elapsed: 5.008 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <error-message-container error> but was: <null>
-	at com.logwire.ChekoutPageTest.invalidContinuTest(ChekoutPageTest.java:104)
+	at com.logwire.ChekoutPageTest.invalidContinuTest(ChekoutPageTest.java:111)
 
