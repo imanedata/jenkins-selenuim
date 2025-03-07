@@ -1,28 +1,21 @@
 pipeline {
-    agent any
+    agent { docker { image 'selenium/standalone-chrome' } }
     stages {
-        stage('Build Selenium Image') {
+        stage('Install Dependencies') {
             steps {
                 script {
-                    // Vérifier si l'image selenium-nodejs existe déjà
-                    def imageExists = sh(script: "docker images -q selenium-nodejs", returnStdout: true).trim()
-                    if (imageExists == "") {
-                        echo 'Image selenium-nodejs non trouvée, construction en cours...'
-                        // Construire l'image Selenium avec Maven
-                        sh "docker build -t selenium-nodejs ."
-                    } else {
-                        echo 'Image selenium-nodejs trouvée.'
-                    }
+                    // Installer Java et Maven si ce n'est pas déjà fait dans l'image
+                    sh 'apt-get update && apt-get install -y maven openjdk-21-jdk'
                 }
             }
         }
         stage('Run Tests') {
             steps {
                 script {
-                    // Exécuter les tests dans l'image Selenium avec l'option --ulimit
-                    docker.image('selenium-nodejs').inside('--ulimit nofile=32768') {
+                    // Exécuter les tests dans le conteneur Docker selenium/standalone-chrome
+                    docker.image('selenium/standalone-chrome').inside('--ulimit nofile=32768') {
                         // Exécuter les tests Maven dans le conteneur
-                        sh 'mvn test'  
+                        sh 'mvn test'
                     }
                 }
             }
