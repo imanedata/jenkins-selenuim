@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image "selenium/standalone-chrome"
-            args "--network host"
+            image "cypress/browsers:node20.8.0-chrome118-ff118"
+            args "--network host""
         }
     }
     environment {
