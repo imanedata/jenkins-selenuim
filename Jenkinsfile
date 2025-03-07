@@ -14,6 +14,10 @@ pipeline {
                     sudo apt-get update && \
                     sudo apt-get install -y maven openjdk-21-jdk
                     '''
+                    
+                    // Créer le répertoire cache de Selenium pour éviter les problèmes de permission
+                    sh 'mkdir -p /home/seluser/.cache/selenium'
+                    sh 'chmod -R 777 /home/seluser/.cache/selenium'
                 }
             }
         }
