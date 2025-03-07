@@ -37,7 +37,7 @@ public class CartPageTest {
             case "chrome":
                 // Spécification du répertoire de données utilisateur unique pour éviter le conflit
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--user-data-dir=/tmp/chrome_" + System.nanoTime());  // Spécifier un répertoire unique
+                options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");  // Spécifier un répertoire unique
                 driver = new ChromeDriver(options);
                 break;
             
