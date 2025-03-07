@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'selenium-nodejs'  // Utilise l'image construite localement
-            args '--network host'
+            image 'selenium-nodejs'
+            args '--privileged --network host'
         }
     }
     stages {
