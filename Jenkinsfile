@@ -4,8 +4,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Installer Java et Maven si ce n'est pas déjà fait dans l'image
-                    sh 'apt-get update && apt-get install -y maven openjdk-21-jdk'
+                    // Utiliser 'root' pour installer Maven et Java dans le conteneur
+                    sh 'sudo apt-get update && sudo apt-get install -y maven openjdk-21-jdk'
                 }
             }
         }
