@@ -36,7 +36,7 @@ public class InventoryPageTest {
             case "chrome":
                 // Spécification du répertoire de données utilisateur unique pour éviter le conflit
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments("--user-data-dir=/tmp/chrome-user-data");  // Spécifier un répertoire unique
+                options.addArguments("--headless", "--disable-gpu", "--no-sandbox", "--user-data-dir=/tmp/chrome_" + System.nanoTime());  // Spécifier un répertoire unique
                 driver = new ChromeDriver(options);
                 break;
             
